@@ -6,20 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('data_loggers', function (Blueprint $table) {
             $table->id();
+            $table->string('brand')->nullable(); // برند دیتالاگر
+            $table->string('model')->nullable(); // مدل دیتالاگر
+            $table->string('ip')->nullable(); // IP درصورت وجود
+            $table->string('port')->nullable(); // پورت ارتباطی
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('data_loggers');
