@@ -6,20 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('sensors', function (Blueprint $table) {
             $table->id();
+            $table->string('type'); // نوع سنسور (فشاری، راداری، ...)
+            $table->string('model')->nullable(); // مدل یا برند سنسور
+            $table->integer('min_height')->nullable(); // کمینه ارتفاع ثبت
+            $table->integer('max_height')->nullable(); // بیشینه ارتفاع ثبت
+            $table->string('color')->nullable(); // رنگ نمودار
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('sensors');
