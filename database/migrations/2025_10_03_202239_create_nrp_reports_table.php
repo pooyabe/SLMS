@@ -6,20 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('nrp_reports', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('station_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+
+            $table->json('pictures')->nullable(); // مسیر عکس‌ها
+            $table->json('fields')->nullable();   // فیلدهای فرم
+            $table->json('leveling')->nullable(); // ترازیابی
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('nrp_reports');
