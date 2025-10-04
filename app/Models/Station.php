@@ -9,4 +9,9 @@ class Station extends Model
 {
     use HasFactory;
 
+
+    public function sensors()
+    {
+        return $this->hasMany(StationSensor::class);
+    }
 }
