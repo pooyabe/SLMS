@@ -23,7 +23,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // مجوزهای کلی برای چک کردن ورود و دسترسی‌های اصلی
         Permission::create(['name' => 'allow-nrp-login']);
-        Permission::create(['name' => 'allow-dashboard-login']);
+        Permission::create(['name' => 'allow-site-login']);
 
         // مجوزهای منوها (Admin Dashboard)
         Permission::create(['name' => 'view-dashboard-menu-users']);
@@ -35,15 +35,15 @@ class RolesAndPermissionsSeeder extends Seeder
         $roleAdmin = Role::create(['name' => 'site_admin']);
         
         $roleAdmin->givePermissionTo([
-            'allow-dashboard-login',
+            'allow-site-login',
             'view-dashboard-menu-users',
         ]);
 
         // mobile reporter
         $roleReporter = Role::create(['name' => 'mobile_reporter']);
         $roleReporter->givePermissionTo([
-            'allow-mobile-login', // این مهم ترین مجوز برای لاگین موبایله
-            'allow-dashboard-login',
+            'allow-nrp-login', // این مهم ترین مجوز برای لاگین موبایله
+            'allow-site-login',
         ]);
 
         // Give role to the first user
