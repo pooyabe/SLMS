@@ -14,7 +14,7 @@ Route::get('/', function () {
  * ------------
  * 
  */
-Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
+Route::group(['prefix' => 'auth', 'as' => 'auth.', 'middleware' => 'guest'], function () {
     // Send / route to login page
     Route::get('/', function () {
         return redirect()->route('auth.login');
