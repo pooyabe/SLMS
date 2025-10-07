@@ -88,10 +88,9 @@ class LoginController extends Controller
         $user->save();
 
         // لاگین کردن کاربر
-        // Auth::login($user);
+        Auth::login($user);
 
-        dd("LOGIN OK");
         // ریدایرکت به داشبورد یا هر جایی که می‌خوای
-        // return redirect()->route('dashboard')->with('success', 'ورود با موفقیت انجام شد.');
+        return redirect()->route('dashboard.main')->with('success', 'ورود با موفقیت انجام شد.');
     }
 }

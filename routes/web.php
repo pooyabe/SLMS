@@ -31,3 +31,17 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
     // Verify code
     Route::post('verifycode', [LoginController::class, 'verify_code'])->name('verifycode');
 });
+
+
+/**
+ * ------------
+ * Dashboard Routes
+ * ------------
+ * 
+ */
+Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
+    // Show the admin panel main page
+    Route::get('/', function () {
+        return view('dashboard.main');
+    })->name('main');
+});
