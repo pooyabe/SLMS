@@ -41,7 +41,7 @@ Route::post('auth/logout', [LoginController::class, 'logout'])->name('auth.logou
  * ------------
  * 
  */
-Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
+Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.', 'middleware' => 'auth'], function () {
     // Show the admin panel main page
     Route::get('/', function () {
         return view('dashboard.main');
