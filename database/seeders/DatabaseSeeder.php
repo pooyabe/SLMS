@@ -14,14 +14,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
-            'name' => 'ادمین',
+        User::create([
+            'name' => 'مدیر',
             'last_name' => 'سیستم',
             'state' => 'Tehran',
             'city' => 'Tehran',
             'organization' => 'سازمان نقشه برداری کشور',
             'phone_number' => '09184004491',
         ]);
+
+        User::create([
+            'name' => 'ادمین',
+            'last_name' => 'سایت',
+            'state' => 'Gilan',
+            'city' => 'Rasht',
+            'organization' => 'سازمان نقشه برداری',
+            'phone_number' => '09184004492',
+        ]);
+
 
         // Call other seeders
         $this->call([

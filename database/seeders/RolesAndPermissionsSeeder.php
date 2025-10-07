@@ -47,11 +47,14 @@ class RolesAndPermissionsSeeder extends Seeder
         ]);
 
         // Give role to the first user
-        $user = \App\Models\User::find(1); // فرض کن کاربر با آیدی ۱ اولین ادمین باشه
+        $user = \App\Models\User::find(1);
         if ($user) {
-
             $user->assignRole(['site_admin', 'mobile_reporter']);
+        }
 
+        $user2 = \App\Models\User::find(2);
+        if ($user2) {
+            $user2->assignRole(['site_admin']);
         }
     }
 }
