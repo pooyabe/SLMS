@@ -93,4 +93,16 @@ class LoginController extends Controller
         // ریدایرکت به داشبورد یا هر جایی که می‌خوای
         return redirect()->route('dashboard.main')->with('success', 'ورود با موفقیت انجام شد.');
     }
+
+    // Log the user Out
+    public function logout(Request $request)
+    {
+        // اگه با session هم وارد شده بود (مثلاً از وب)
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('auth.login')->with('status', 'با موفقیت خارج شدید.');
+    }
 }

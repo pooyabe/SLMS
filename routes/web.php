@@ -31,6 +31,8 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.', 'middleware' => 'guest'], fun
     // Verify code
     Route::post('verifycode', [LoginController::class, 'verify_code'])->name('verifycode');
 });
+// Writing the logout route here, because we dont want the guest middleware affect it
+Route::post('auth/logout', [LoginController::class, 'logout'])->name('auth.logout')->middleware('auth:sanctum');
 
 
 /**

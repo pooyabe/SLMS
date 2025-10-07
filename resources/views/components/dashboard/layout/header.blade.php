@@ -46,28 +46,21 @@
                 <!-- Notifications Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell-o"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
+                        <i class="fa fa-user-o"></i>
+                        <span class="badge badge-warning navbar-badge"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
-                        <span class="dropdown-item dropdown-header">15 نوتیفیکیشن</span>
+                        <span class="dropdown-item dropdown-header">منو کاربری</span>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fa fa-envelope ml-2"></i> 4 پیام جدید
-                            <span class="float-left text-muted text-sm">3 دقیقه</span>
+                            <i class="fa fa-edit ml-2"></i> ویرایش پروفایل
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fa fa-users ml-2"></i> 8 درخواست دوستی
-                            <span class="float-left text-muted text-sm">12 ساعت</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fa fa-file ml-2"></i> 3 گزارش جدید
-                            <span class="float-left text-muted text-sm">2 روز</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">مشاهده همه نوتیفیکیشن</a>
+                        <form action="{{ route('auth.logout') }}" method="POST" name="logoutFORM">
+                            @csrf
+                            <a href="#" class="dropdown-item dropdown-footer"
+                                onclick="document.logoutFORM.submit();">خروج</a>
+                        </form>
                     </div>
                 </li>
                 <li class="nav-item">
