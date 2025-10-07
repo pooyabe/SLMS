@@ -1,7 +1,7 @@
 
 <!-- /.content-wrapper -->
 <footer class="main-footer">
-    <strong>CopyLeft &copy; 2018 <a href="http://github.com/hesammousavi/">حسام موسوی</a>.</strong>
+    <strong>CopyLeft &copy; 2025 <a href="http://github.com/pooyabe/">پویا بهروش</a>.</strong>
 </footer>
 
 <!-- Control Sidebar -->
@@ -49,10 +49,6 @@
 <script src="assets/dashboard/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="assets/dashboard/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="assets/dashboard/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="assets/dashboard/dist/js/demo.js"></script>
 </body>
 
 </html>
