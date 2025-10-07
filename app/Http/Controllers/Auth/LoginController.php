@@ -44,9 +44,10 @@ class LoginController extends Controller
         //ارسال پیامک (فعلاً شبیه‌سازی شده)
         // sendSMS
 
+        session(['phone' => $user->phone_number]);
+
         // هدایت به صفحه‌ی وارد کردن کد
-        return redirect()->route('auth.showverifycode')
-            ->with('phone', $user->phone_number);
+        return redirect()->route('auth.showverifycode');
     }
 
 
@@ -56,7 +57,7 @@ class LoginController extends Controller
     public function show_verify_code()
     {
         return view('auth.verifycode', [
-            'phone' => session('phone')
+            'status' => session('status')
         ]);
     }
 
@@ -65,34 +66,39 @@ class LoginController extends Controller
      */
     public function verify_code(Request $request)
     {
-        // اعتبارسنجی ورودی‌ها
         $request->validate([
-            'phone' => 'required|string|size:11|regex:/^09[0-9]{9}$/',
             'code' => 'required|digits_between:4,6',
         ]);
 
-        // پیدا کردن کاربر بر اساس شماره
-        $user = User::where('phone_number', $request->phone)->first();
+        // شماره تلفن از سشن گرفته میشه
+        $phone = session('phone');
+
+        if (!$phone) {
+            return redirect()->route('auth.login')->with(['status' => 'سشن شما منقضی شده است.']);
+        }
+
+
+        $user = User::where('phone_number', $phone)->first();
 
         if (!$user) {
-            return back()->withErrors(['phone' => 'کاربری با این شماره یافت نشد.']);
+            return redirect()->route('auth.showverifycode')->with('status', 'کاربر مورد نظر وجود ندارد!');
         }
 
-        // بررسی کد
         if ($user->verification_code !== $request->code) {
-            return back()->withErrors(['code' => 'کد وارد شده صحیح نیست.']);
+            return redirect()->route('auth.showverifycode')->with('status', 'کد وارد شده اشتباه است.');
         }
 
-        // پاک کردن کد بعد از تأیید
         $user->verification_code = null;
         $user->save();
 
-        // لاگین کردن کاربر
         Auth::login($user);
 
-        // ریدایرکت به داشبورد یا هر جایی که می‌خوای
+        // پاک‌سازی سشن بعد از ورود موفق
+        session()->forget('phone');
+
         return redirect()->route('dashboard.main')->with('success', 'ورود با موفقیت انجام شد.');
     }
+
 
     // Log the user Out
     public function logout(Request $request)
