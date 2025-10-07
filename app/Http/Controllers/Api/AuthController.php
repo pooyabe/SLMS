@@ -21,10 +21,18 @@ class AuthController extends Controller
 
         $user = User::where('phone_number', $request->phone_number)->first();
 
+        // کاربر وجود ندارد
         if (!$user) {
             return response()->json([
                 'message' => '101'
             ], 404);
+        }
+
+        // کاربر مجوز ورود ندارد
+        if (!$user->can('allow-nrp-login')) {
+            return response()->json([
+                'message' => '103'
+            ], 403);
         }
 
         // تولید کد تأیید (مثلاً ۵ رقمی)
@@ -56,12 +64,21 @@ class AuthController extends Controller
 
         $user = User::where('phone_number', $request->phone_number)->first();
 
+        // کاربر وجود ندارد
         if (!$user) {
             return response()->json([
                 'message' => '101'
             ], 404);
         }
 
+        // کاربر اجازه ورود ندارد
+        if (!$user->can('allow-nrp-login')) {
+            return response()->json([
+                'message' => '103'
+            ], 403);
+        }
+
+        // کد صحیح نیست
         if ($user->verification_code != $request->code) {
             return response()->json([
                 'message' => '102'
