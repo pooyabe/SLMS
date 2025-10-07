@@ -1,2 +1,1 @@
-Hello World
-{{ session('success') }}
+@extends('dashboard.layout');
