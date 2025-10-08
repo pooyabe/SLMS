@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('state')->nullable(); // استان
+            $table->string('state_fa')->nullable(); // استان
             $table->string('code')->unique(); // کد اختصاری یکتا
             $table->string('main_contact')->nullable(); // مسئول اصلی ایستگاه
             $table->decimal('latitude', 10, 6)->nullable(); // مختصات
