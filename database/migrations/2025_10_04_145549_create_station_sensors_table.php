@@ -14,14 +14,14 @@ return new class extends Migration
             $table->foreignId('station_id')->constrained()->onDelete('cascade');
             $table->foreignId('sensor_id')->constrained()->onDelete('cascade');
 
-            $table->float('min_val')->nullable();
-            $table->float('max_val')->nullable();
-            $table->float('min_val_height')->nullable();
-            $table->float('max_val_height')->nullable();
+            $table->integer('min_val')->nullable();
+            $table->integer('max_val')->nullable();
+            $table->integer('min_val_height')->nullable();
+            $table->integer('max_val_height')->nullable();
 
             $table->enum('sensor_data_transfer_type', ['V', 'A'])->nullable(); // ولتاژ یا جریان
-            $table->float('offset')->nullable();
-            $table->float('gain')->nullable();
+            $table->integer('offset')->nullable();
+            $table->tinyInteger('gain')->nullable();
 
             $table->text('description')->nullable();
 
