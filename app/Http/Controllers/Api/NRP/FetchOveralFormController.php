@@ -46,4 +46,42 @@ class FetchOveralFormController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * --- Fetch Stations based on selected State ---
+     */
+    public function FetchStations(Request $request)
+    {
+        $user = $request->user(); // کاربری که توکنش معتبره
+
+        // اگر توکن معتبر نباشه
+        if (!$user) {
+            return response()->json([
+                'message' => '103'
+            ], 403);
+        }
+
+        try {
+
+            $stations = Station::select(['code', 'name'])
+                ->where('state', $request->input('state'))
+                ->get();
+
+            $formatted = $stations->map(fn($s) => [
+                'label' => $s->name,
+                'value' => $s->code,
+            ])->values();
+
+            return response()->json([
+                'success' => true,
+                'stations' => $formatted,
+            ], 200);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }

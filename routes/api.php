@@ -18,4 +18,7 @@ Route::group([
 
     // Fetch states list
     Route::post('/fetch-states', [FetchOveralFormController::class, 'FetchStates']);
+
+    // Fetch Stations based on state
+    Route::post('/fetch-stations', [FetchOveralFormController::class, 'FetchStations']);
 });
