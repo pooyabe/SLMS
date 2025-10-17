@@ -21,4 +21,7 @@ Route::group([
 
     // Fetch Stations based on state
     Route::post('/fetch-stations', [FetchOveralFormController::class, 'FetchStations']);
+
+    // ثبت گزارش جدید
+    Route::post('/store-report', [\App\Http\Controllers\Api\NRP\NrpReportController::class, 'store']);
 });
