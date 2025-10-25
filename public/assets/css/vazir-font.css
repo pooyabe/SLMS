@@ -1,0 +1,59 @@
+@font-face {
+    font-family: Vazir;
+    src: url('../dashboard/dist/fonts/Vazir.eot');
+    src: url('../dashboard/dist/fonts/Vazir.eot?#iefix') format('embedded-opentype'),
+    url('../dashboard/dist/fonts/Vazir.woff2') format('woff2'),
+    url('../dashboard/dist/fonts/Vazir.woff') format('woff'),
+    url('../dashboard/dist/fonts/Vazir.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Vazir;
+    src: url('../dashboard/dist/fonts/Vazir-Bold.eot');
+    src: url('../dashboard/dist/fonts/Vazir-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../dashboard/dist/fonts/Vazir-Bold.woff2') format('woff2'),
+    url('../dashboard/dist/fonts/Vazir-Bold.woff') format('woff'),
+    url('../dashboard/dist/fonts/Vazir-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Vazir;
+    src: url('../dashboard/dist/fonts/Vazir-Light.eot');
+    src: url('../dashboard/dist/fonts/Vazir-Light.eot?#iefix') format('embedded-opentype'),
+    url('../dashboard/dist/fonts/Vazir-Light.woff2') format('woff2'),
+    url('../dashboard/dist/fonts/Vazir-Light.woff') format('woff'),
+    url('../dashboard/dist/fonts/Vazir-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Vazir;
+    src: url('../dashboard/dist/fonts/Vazir-Medium.eot');
+    src: url('../dashboard/dist/fonts/Vazir-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../dashboard/dist/fonts/Vazir-Medium.woff2') format('woff2'),
+    url('../dashboard/dist/fonts/Vazir-Medium.woff') format('woff'),
+    url('../dashboard/dist/fonts/Vazir-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Vazir;
+    src: url('../dashboard/dist/fonts/Vazir-Thin.eot');
+    src: url('../dashboard/dist/fonts/Vazir-Thin.eot?#iefix') format('embedded-opentype'),
+    url('../dashboard/dist/fonts/Vazir-Thin.woff2') format('woff2'),
+    url('../dashboard/dist/fonts/Vazir-Thin.woff') format('woff'),
+    url('../dashboard/dist/fonts/Vazir-Thin.ttf') format('truetype');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: Vazir;
+    src: url('../dashboard/dist/fonts/Vazir-Black.eot');
+    src: url('../dashboard/dist/fonts/Vazir-Black.eot?#iefix') format('embedded-opentype'),
+    url('../dashboard/dist/fonts/Vazir-Black.woff2') format('woff2'),
+    url('../dashboard/dist/fonts/Vazir-Black.woff') format('woff'),
+    url('../dashboard/dist/fonts/Vazir-Black.ttf') format('truetype');
+    font-weight: 900;
+}
