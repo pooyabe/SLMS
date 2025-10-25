@@ -1,13 +1,18 @@
 @extends('auth.layout')
 
 @section('form')
-    <form action="{{ route('auth.verifycode') }}" method="post">
+    <div class="overlay"></div>
+    <form action="{{ route('auth.verifycode') }}" method="post" class="form-group">
         @csrf
-        <input type="number" name="code" placeholder="کد تأیید" required />
-        <button type="submit">ورود</button>
+        <img src="{{ asset('assets/imgs/ncc-logo-white.png') }}" alt="Logo" class="ncc-logo" />
+        <h1 class="title">تایید ورود</h1>
+        <input type="tel" name="code" placeholder="کد تأیید" required class="input_data" />
+        <button type="submit" class="submit_button">ورود</button>
 
         @isset($status)
-            {{ $status }}
+            <span class="error">
+                {{ $status }}
+            </span>
         @endisset
     </form>
 @endsection
